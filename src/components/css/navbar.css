@@ -1,0 +1,113 @@
+.SVG {
+  float: left;
+  height: 60px;
+  margin-left: 10px;
+}
+.logo_name {
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 40px;
+  margin-left: 5px;
+}
+.navbar {
+  display: flex;
+  height: 80px;
+  background-color: rgb(236, 243, 245);
+  align-content: center;
+}
+.connect {
+  display: flex;
+  flex: 0.2;
+  align-items: center;
+  justify-content: left;
+  cursor: pointer;
+}
+.searchbar {
+  /* background-color: red; */
+  display: flex;
+  flex: 0.6;
+  align-items: center;
+
+  margin: 10px;
+}
+.searchbar > input {
+  margin-left: 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 60%;
+}
+.no_outline:focus {
+  outline: none;
+  color: darkblue;
+}
+.searchbar > button {
+  border-radius: 10px;
+  height: 45px;
+  font-size: 20px;
+  border: none;
+  margin-left: 15px;
+  background-color: #32c0f8;
+  cursor: pointer;
+}
+.searchbar > button:hover {
+  transition: 0.2s all;
+}
+.searchbar > button:active {
+  transform: scale(0.98);
+  transition: 0.2s all;
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.nav_right {
+  /* background-color: blue; */
+  display: flex;
+  flex: 0.4;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.account_details {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.account_details > h2 {
+  margin-left: 10px;
+  /* background-color: black; */
+  margin-top: 20px;
+}
+.menu_button {
+  background-color: #00acee;
+}
+
+@media only screen and (max-width: 700px) {
+  .searchbar {
+    display: none;
+  }
+  .connect {
+    flex: 0.5;
+  }
+  .nav_right {
+    flex: 0.5;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  /* .searchbar{
+    display: none;
+  } */
+  .connect {
+    flex: 0.5;
+  }
+  .nav_right {
+    flex: 0.4;
+    margin-left: 10px;
+  }
+  .menu_button {
+    display: none !important;
+  }
+  .login_button {
+    margin-right: 20px !important ;
+  }
+}
