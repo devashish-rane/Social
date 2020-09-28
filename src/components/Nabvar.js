@@ -1,33 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 // import styled from "styled-components";
 import ConnectLogo from "./Connect.svg";
 import "./css/navbar.css";
+
 import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
 // import Icon from '@material-ui/core/Icon';
 
+//imported Userdata context
+import { userObjectContext as userContext } from "../App.js";
+
 function Navbar() {
+  //using conetxt for user data
+  const { userName, isLoggedIn, setIsLoggedIn } = useContext(userContext);
+  // console.log(userName);
+
+  //related to material UI select tag state
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [isLoggedIn, toggleLogin] = React.useState(false);
+  // const [isLoggedIn, toggleLogin] = React.useState(false);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
+  ////material UI core
+
   const toggleLoginHandler = (e) => {
     //  e.preventDefault();
     if (isLoggedIn === false) {
-      toggleLogin(true);
+      setIsLoggedIn(true);
     }
   };
+
   const toggleLogoutHandler = (e) => {
     //  e.preventDefault();
     if (isLoggedIn === true) {
-      toggleLogin(false);
+      setIsLoggedIn(false);
       handleClose();
     }
   };
+
   return (
     <div className="navbar">
       {/* logo */}
@@ -35,17 +47,19 @@ function Navbar() {
         <img className="SVG" src={ConnectLogo} alt="LOGO" />
         <span className="logo_name">Connect</span>
       </div>
+
       {/* searchbar */}
       <div className="searchbar">
         <input className="no_outline" type="text" placeholder="search"></input>
         <button className="no_outline">Search</button>
       </div>
+
       {/* nav buttons */}
       <div className="nav_right">
         {isLoggedIn && (
           <div className="account_details">
             <Avatar src="https://ui-avatars.com/api/?name=John+Doe" />
-            <h2>Devashish </h2>
+            <h2>{userName} </h2>
           </div>
         )}
         {!isLoggedIn && (
