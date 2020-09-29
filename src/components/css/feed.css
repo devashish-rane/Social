@@ -1,0 +1,27 @@
+.feed {
+  flex: 0.5;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+}
+.feed_row_flex {
+  display: flex;
+}
+
+/* media Queries */
+@media (max-width: 700px) {
+  .feed_row_flex {
+    flex-direction: column;
+  }
+}
+/* @media (max-width: 500px) {
+  #wrapper {
+      flex-direction: column;    
+  }
+  #right-content {
+      display: flex;
+  }
+
+  section {
+      flex: 1;   
+  }
+} */

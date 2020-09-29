@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 // import styled from "styled-components";
 import ConnectLogo from "./Connect.svg";
 import "./css/navbar.css";
+import { Link } from "react-router-dom";
 
 import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
 // import Icon from '@material-ui/core/Icon';
@@ -43,8 +44,11 @@ function Navbar() {
   return (
     <div className="navbar">
       {/* logo */}
+
       <div className="connect">
-        <img className="SVG" src={ConnectLogo} alt="LOGO" />
+        <Link to="/">
+          <img className="SVG" src={ConnectLogo} alt="LOGO" />
+        </Link>
         <span className="logo_name">Connect</span>
       </div>
 
@@ -59,11 +63,11 @@ function Navbar() {
         {isLoggedIn && (
           <div className="account_details">
             <Avatar src="https://ui-avatars.com/api/?name=John+Doe" />
-            <h2>{userName} </h2>
+            <h2 className="username">{userName} </h2>
           </div>
         )}
         {!isLoggedIn && (
-          <div className="">
+          <div>
             <Button
               className="login_button"
               variant="contained"
@@ -91,8 +95,14 @@ function Navbar() {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Interests</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <Link to="/interests">
+            <MenuItem onClick={handleClose}>Interests</MenuItem>
+          </Link>
+
+          <Link to="/account">
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+          </Link>
+
           <MenuItem onClick={toggleLogoutHandler}>Logout</MenuItem>
         </Menu>
       </div>
